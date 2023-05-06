@@ -24,6 +24,7 @@ def start(message):
 def handle_button_press(call):
     global fase
     if call.data == 'si':
+        fase = 0
         bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=types.InlineKeyboardMarkup())
         bot.send_message(chat_id=call.message.chat.id, text="Per interrompere in qualsiasi momento il procedimento usa /quit")
         bot.send_message(chat_id=call.message.chat.id, text=domande[fase])
