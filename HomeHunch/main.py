@@ -11,25 +11,32 @@ domande = ["quante camere da letto ha?", "quanti bagni ha?", "quanti piani ha?",
            "la superficie del terreno è maggiore alla media della zona? (1: si, 0: no)"]
 risposte = []
 
+#avvio del bot, si crea un bottone che inizia il procedimento
 @bot.message_handler(commands =["start"])
 def start(message):
     global fase
+    global risposte
     fase = 0
+    risposte.clear()
     btnSi = types.InlineKeyboardButton('SI!', callback_data='si')
     keyboard = types.InlineKeyboardMarkup()
     keyboard.add(btnSi)
     bot.send_message(message.chat.id, "Ciao! Sono HomeHunch e ti aiuterò a stimare il prezzo del tuo immobile, sei pronto?", reply_markup=keyboard)
 
+#quando "inizia" il procedimento cliccando il bottone SI
 @bot.callback_query_handler(func=None)
 def handle_button_press(call):
     global fase
+    global risposte
     if call.data == 'si':
         fase = 0
+        risposte.clear()
         bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=types.InlineKeyboardMarkup())
         bot.send_message(chat_id=call.message.chat.id, text="Per interrompere in qualsiasi momento il procedimento usa /quit, ricorda di usare il punto al posto della virgola")
         bot.send_message(chat_id=call.message.chat.id, text=domande[fase])
         fase += 1
 
+#per interrompere il procedimento
 @bot.message_handler(commands =["quit"])
 def quit(message):
     global risposte
@@ -41,6 +48,7 @@ def quit(message):
     else:
         bot.send_message(chat_id=message.chat.id, text="Non è stato iniziato nessun processo!")
 
+#quando viene mandato un messaggio qualsiasi che non sia un comando si finisce qui
 @bot.message_handler(func=lambda message: True)
 def messageReceived(message):
     global fase
@@ -163,6 +171,6 @@ def messageReceived(message):
                 bot.send_message(chat_id=message.chat.id, text=domande[fase])
                 fase += 1
     else:
-        bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso (inserisci solo numeri senza spazi)")
+        bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso (prima prova a scrivere un comando e inserisci solo numeri senza spazi)")
 
 bot.polling()
