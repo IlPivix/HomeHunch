@@ -26,7 +26,7 @@ def handle_button_press(call):
     if call.data == 'si':
         fase = 0
         bot.edit_message_reply_markup(chat_id=call.message.chat.id, message_id=call.message.message_id, reply_markup=types.InlineKeyboardMarkup())
-        bot.send_message(chat_id=call.message.chat.id, text="Per interrompere in qualsiasi momento il procedimento usa /quit")
+        bot.send_message(chat_id=call.message.chat.id, text="Per interrompere in qualsiasi momento il procedimento usa /quit, ricorda di usare il punto al posto della virgola")
         bot.send_message(chat_id=call.message.chat.id, text=domande[fase])
         fase += 1
 
@@ -66,103 +66,103 @@ def messageReceived(message):
                     bot.send_message(chat_id=message.chat.id, text=domande[fase])
                     fase += 1
                 else:
-                    bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso")
+                    bot.send_message(chat_id=message.chat.id, text="Hey! Una casa deve avere almeno una camera da letto")
             elif fase == 2:
                 if numero > 0:
                     risposte.append(numero)
                     bot.send_message(chat_id=message.chat.id, text=domande[fase])
                     fase += 1
                 else:
-                    bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso")
+                    bot.send_message(chat_id=message.chat.id, text="Hey! Una casa deve avere almeno un bagno")
             elif fase == 3:
                 if numero > 0:
                     risposte.append(numero)
                     bot.send_message(chat_id=message.chat.id, text=domande[fase])
                     fase += 1
                 else:
-                    bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso")
+                    bot.send_message(chat_id=message.chat.id, text="Hey! Una casa deve avere almeno un piano")
             elif fase == 4:
                 if numero == 0 or numero == 1:
                     risposte.append(numero)
                     bot.send_message(chat_id=message.chat.id, text=domande[fase])
                     fase += 1
                 else:
-                    bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso")
+                    bot.send_message(chat_id=message.chat.id, text="Hey! I valori ammessi sono 0 e 1")
             elif fase == 5:
                 if numero >= 0 and numero <= 4:
                     risposte.append(numero)
                     bot.send_message(chat_id=message.chat.id, text=domande[fase])
                     fase += 1
                 else:
-                    bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso")
+                    bot.send_message(chat_id=message.chat.id, text="Hey! I valori ammessi sono da 0 a 4")
             elif fase == 6:
                 if numero >= 1 and numero <= 5:
                     risposte.append(numero)
                     bot.send_message(chat_id=message.chat.id, text=domande[fase])
                     fase += 1
                 else:
-                    bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso")
+                    bot.send_message(chat_id=message.chat.id, text="Hey! I valori ammessi sono da 1 a 5")
             elif fase == 7:
                 if numero >= 1 and numero <= 13:
                     risposte.append(numero)
                     bot.send_message(chat_id=message.chat.id, text=domande[fase])
                     fase += 1
                 else:
-                    bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso")
+                    bot.send_message(chat_id=message.chat.id, text="Hey! I valori ammessi sono da 1 a 13")
             elif fase == 8:
                 if numero > 0:
                     risposte.append(numero)
                     bot.send_message(chat_id=message.chat.id, text=domande[fase])
                     fase += 1
                 else:
-                    bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso")
+                    bot.send_message(chat_id=message.chat.id, text="Hey! Una casa non può avere superficie negativa")
             elif fase == 9:
                 if numero == 0 or numero == 1:
                     risposte.append(numero)
                     bot.send_message(chat_id=message.chat.id, text=domande[fase])
                     fase += 1
                 else:
-                    bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso")
+                    bot.send_message(chat_id=message.chat.id, text="Hey! I valori ammessi sono 0 e 1")
             elif fase == 10:
                 if numero > 0:
                     risposte.append(numero)
                     bot.send_message(chat_id=message.chat.id, text=domande[fase])
                     fase += 1
                 else:
-                    bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso")
+                    bot.send_message(chat_id=message.chat.id, text="Hey! L'anno non può essere negativo")
             elif fase == 11:
                 if numero == 0 or numero == 1:
                     risposte.append(numero)
                     bot.send_message(chat_id=message.chat.id, text=domande[fase])
                     fase += 1
                 else:
-                    bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso")
+                    bot.send_message(chat_id=message.chat.id, text="Hey! I valori ammessi sono 0 e 1")
             elif fase == 12:
                 if numero > 0:
                     risposte.append(numero)
                     bot.send_message(chat_id=message.chat.id, text=domande[fase])
                     fase += 1
                 else:
-                    bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso")
+                    bot.send_message(chat_id=message.chat.id, text="Hey! Il codice postale non può essere negativo")
             elif fase == 15:
                 if numero == 0 or numero == 1:
                     risposte.append(numero)
                     bot.send_message(chat_id=message.chat.id, text=domande[fase])
                     fase += 1
                 else:
-                    bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso")
+                    bot.send_message(chat_id=message.chat.id, text="Hey! I valori ammessi sono 0 e 1")
             elif fase == 16:
                 if numero == 0 or numero == 1:
                     risposte.append(numero)
                     bot.send_message(chat_id=message.chat.id, text=domande[fase])
                     fase += 1
                 else:
-                    bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso")
+                    bot.send_message(chat_id=message.chat.id, text="Hey! I valori ammessi sono 0 e 1")
             else:
                 risposte.append(numero)
                 bot.send_message(chat_id=message.chat.id, text=domande[fase])
                 fase += 1
     else:
-        bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso")
+        bot.send_message(chat_id=message.chat.id, text="Hey! Stai scrivendo cose a caso (inserisci solo numeri senza spazi)")
 
 bot.polling()
